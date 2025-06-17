@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portofolio Jokowi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0d1117;
+      color: #e0e0e0;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px 30px;
+    }
+    header img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #00ffff;
+      box-shadow: 0 0 15px #00ffffaa;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      background: linear-gradient(270deg, #ff0000, #00ff00, #0000ff, #ff0000);
+      background-size: 600% 600%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: rgbText 5s linear infinite;
+      margin: 10px 0;
+    }
+
+    @keyframes rgbText {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes fadeInOut {
+      0%, 100% { opacity: 0; }
+      50% { opacity: 1; }
+    }
+
+    header p {
+      font-size: 1.1em;
+      color: #cccccc;
+      animation: fadeInOut 4s ease-in-out infinite;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+    .section {
+      margin-bottom: 50px;
+    }
+    .section h2 {
+      font-size: 1.8em;
+      color: #00e5ff;
+      margin-bottom: 20px;
+      border-left: 4px solid #00e5ff;
+      padding-left: 10px;
+      text-shadow: 0 0 8px #00e5ffcc;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card, .gallery-img {
+      background: #141b2d;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+    }
+    .card {
+      padding: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 18px #00ffffaa;
+    }
+
+    .gallery-img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.3s;
+    }
+    .gallery-img:hover {
+      transform: scale(1.05);
+    }
+
+    .progress-bar {
+      background: #222;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 15px;
+    }
+    .progress-bar-inner {
+      height: 20px;
+      background: linear-gradient(to right, #00ffff, #00e5ff);
+      text-align: right;
+      padding-right: 10px;
+      line-height: 20px;
+      color: #000;
+      font-weight: bold;
+    }
+
+    iframe {
+      width: 100%;
+      height: 315px;
+      border-radius: 12px;
+      margin-top: 20px;
+      box-shadow: 0 0 10px #00ffff55;
+    }
+
+    a {
+      color: #00ffff;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      background: #0a0f1c;
+      padding: 30px 20px;
+      font-size: 14px;
+      color: #999;
+      box-shadow: 0 -2px 10px #00ffff33;
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 2em; }
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="starsCanvas"></canvas>
+
+<header>
+  <img src="joko.jpg" alt="Foto Jokowi" />
+  <h1>Joko Widodo</h1>
+  <p>Presiden Republik Indonesia | Pemimpin Pembangunan</p>
+</header>
+
+<div class="container">
+  <section class="section">
+    <h2>Tentang Jokowi</h2>
+    <p>Joko Widodo atau Jokowi adalah Presiden Indonesia yang dikenal karena gaya kepemimpinan sederhana dan fokus pada pembangunan infrastruktur serta transformasi digital nasional.</p>
+  </section>
+
+  <section class="section">
+    <h2>Galeri Kinerja</h2>
+    <div class="project-grid">
+      <img src="i.jfif" alt="Tol Trans Jawa" class="gallery-img" />
+      <img src="p.jfif" alt="IKN Nusantara" class="gallery-img" />
+      <img src="images.jfif" alt="Program Prakerja" class="gallery-img" />
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Kinerja Nasional</h2>
+    <div class="progress-bar">
+      <div class="progress-bar-inner" style="width: 90%;">90% Infrastruktur</div>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-bar-inner" style="width: 85%;">85% Digitalisasi Layanan</div>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-bar-inner" style="width: 80%;">80% Pembangunan Daerah</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Video Jokowi</h2>
+    <iframe src="ok.mp4" allowfullscreen></iframe>
+  </section>
+
+  <section class="section">
+    <h2>Kontak</h2>
+    <p>Email: <a href="#">jokowi@setneg.go.id</a></p>
+    <p>Instagram: <a href="https://instagram.com/jokowi">@jokowi</a></p>
+    <p>YouTube: <a href="https://youtube.com/@presidenjokowi">youtube.com/@presidenjokowi</a></p>
+  </section>
+</div>
+
+<footer>
+  &copy; 2025 Jokowi. Dibuat dengan semangat membangun Indonesia 🌟
+</footer>
+
+<audio autoplay loop>
+  <source src="musik-latar.mp3" type="audio/mpeg">
+  Browser Anda tidak mendukung audio.
+</audio>
+
+<script>
+  const canvas = document.getElementById('starsCanvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  let stars = [];
+
+  function createStar() {
+    return {
+      x: Math.random() * canvas.width,
+      y: 0,
+      size: Math.random() * 2 + 1,
+      speed: Math.random() * 2 + 1,
+      opacity: Math.random()
+    };
+  }
+
+  for (let i = 0; i < 200; i++) {
+    stars.push(createStar());
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    stars.forEach((star, i) => {
+      ctx.beginPath();
+      ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
+      ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+      ctx.fill();
+      star.y += star.speed;
+      if (star.y > canvas.height) {
+        stars[i] = createStar();
+      }
+    });
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+
+  window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+</script>
+
+</body>
+</html>
